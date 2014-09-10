@@ -25,8 +25,20 @@ def main():
         print("cosita")
         main()
 
-main()
+
 
 def revisa(lineas):
-    for i in lineas:
-        lineas.split(" ")
+    lineasAux = []
+    for palabra in lineas:
+        palabraS=[]
+        palabraS = palabra.split(" ")
+        lineasAux.extend(palabraS)
+    lineas[:] = lineasAux[:]
+    return  lineas
+
+
+
+
+main()
+print(lineas)
+print(revisa(lineas),"cosita")

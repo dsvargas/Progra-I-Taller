@@ -3,6 +3,9 @@ __author__ = 'Dylana'
 #Fecha de entrega: 17-09-2014
 #horas de trabajo:
 
+#from Main import *
+
+
 
 tipovariable = [{"int":"num"},{"float":"deci"},{"str":"letter"},{"True":"V"},{"False":"F"}]
 
