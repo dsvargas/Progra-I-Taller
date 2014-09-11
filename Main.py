@@ -16,6 +16,9 @@ def main():
         if qs == 1:
             print("Nuevo archivo")
             reading(lineas)
+            revisa(lineas)
+            crear_archivo()
+            escribe(lineas)
         elif qs == 2:
             print("Compilar")
         else:
@@ -27,18 +30,6 @@ def main():
 
 
 
-def revisa(lineas):
-    lineasAux = []
-    for palabra in lineas:
-        palabraS=[]
-        palabraS = palabra.split(" ")
-        lineasAux.extend(palabraS)
-    lineas[:] = lineasAux[:]
-    return  lineas
-
-
 
 
 main()
-print(lineas)
-print(revisa(lineas),"cosita")
