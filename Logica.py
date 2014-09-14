@@ -6,41 +6,45 @@ __author__ = 'Dylana'
 
 tipovariable = {"int": "num", "float": "deci", "str": "letter", "True": "V", "False": "F"}
 
-Condicionales = {'if': 'si', "elif": "sifi", "else": "sino"}
-
+Condicionales = {'si': 'if', "sifi": "elif", "sino": "else"}
 Bucles = {"while": "mientras", "for": "hagase"}
-
 Funciones = {"print": "imprimir", "def": "funka", "return": "retorne"}
-
 sintaxis = {":": ";", "[": "(", "]": ")", "(": "{", ")": "}", " ": "_", "    ": "//"}
 
 
-def reading(lineas):
+def writing(lineas): #escribe lineas
     while True:
         line = input()
-        if line == "listo":
+        if line == "listo": # si encuentra " listo " se detiene la escritura
             return
-        lineas.append(line)
+        lineas.append(line)# las agraga a la lista lineas
 
-
-def revisa(lineas):
-    lineas_aux = []
-    for palabra in lineas:
-        palabras = []
-        palabras = palabra.split(" ")
-        lineas_aux.extend(palabras)
+def separa(lineas):  # separa las lineas
+    lineas_aux = [] 
+    palabra = []
+    for palabra in lineas: # recorre la lista " lineas "  donde escribimos el progama 
+        palabra = palabra.split(" ")# cada que encuentre un espacio separa en palabras
+        lineas_aux.extend(palabra)
     lineas[:] = lineas_aux[:]
-    lineas_aux = []
 
+def cambia(lineas):
+    listaAux = []
+    for i in lineas:
+        if i in Condicionales:
+            for j in Condicionales[i]:
+                listaAux.append(Condicionales[j])
+        else:
+            listaAux.append(i)
+    lineas[:] = listaAux[:]
 
 def escribe(lineas):
-    archivo = open('archivo.py', 'a',1)
+    archivo = open('archivo.py', 'a', 1)
     for elemento in lineas:
         print(elemento)
-        if elemento!= ";":
+        if elemento != "":
             archivo.write(elemento+" ")
         else:
-            archivo.write(":"+'\n')
+            archivo.write(" "+'\n')
 
     archivo.close()
 
@@ -49,19 +53,5 @@ def escribe(lineas):
 def crear_archivo():
     archivo = open('archivo.py', 'w')  # asi creamos un archivo .py
     archivo.close()
-
-'''
-
-def identificar_estud(Condicionales):
-    carnet = input("Digite el carnet del estudiante: ")
-    if carnet in Condicionales.keys(): # si carnet es en las llaves de el diccionario de estudiantes
-        print("El estudiante al cual le pertenece ese carnet es ", Condicionales[carnet])
-    else:
-        print("Estudiante no encontrado")
-'''
-
-
-
-
 
 

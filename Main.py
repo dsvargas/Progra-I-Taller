@@ -15,8 +15,10 @@ def main():
         qs = int(input("Escoja la opcion que desee."))
         if qs == 1:
             print("Nuevo archivo")
-            reading(lineas)
-            revisa(lineas)
+            writing(lineas)
+            print(lineas)
+            separa(lineas)
+            cambia(lineas)
             crear_archivo()
             escribe(lineas)
         elif qs == 2:
@@ -25,7 +27,7 @@ def main():
             print("cosita")
             main()
     except:
-        print("cosita")
+        print("se enciclo")
         main()
 
 
