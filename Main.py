@@ -5,8 +5,8 @@ __author__ = 'Dylana'
 
 from Logica import *
 
-lineas = []
-
+lineas = [] # las lineas que escribimos en el txt
+newLine = [] # las lineas que escribimos en el py
 
 def main():
     print("1.Nuevo archivo")
@@ -18,7 +18,8 @@ def main():
             writing(lineas)
             print(lineas)
             crear_archivo()
-            
+            escribe(lineas)
+            leer_txten_lista(newLine)
         elif qs == 2:
             print("Compilar")
         else:
@@ -33,3 +34,4 @@ def main():
 
 
 main()
+print(newLine,"an blublublu")

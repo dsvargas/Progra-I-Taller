@@ -1,0 +1,9 @@
+#Ejemplo
+
+c=1
+v=3
+ 
+si c < v ;
+//escribir {“Hola mundo”}
+sino ;
+//escribir {“Es mi primer codigo”}

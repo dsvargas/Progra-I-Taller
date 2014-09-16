@@ -23,22 +23,31 @@ def writing(lineas): #escribe lineas
         lineas.append(line)# las agraga a la lista lineas
 
 
-def crear_archivo():
-    archivo = open('archivo.txt', 'w')  # asi creamos un archivo .py
+def crear_archivo(): # crea un archivo
+    archivo = open('archivo.txt', 'w')  # asi creamos un archivo
     archivo.close()
 
-def escribe(lineas):
-    archivo = open('archivo.py', 'a', 1)
-    for i in range(len(lineas)):
-        for elemento in lineas[i]:
-            if elemento == ":":
-                archivo.write(":"+'\n')
+
+def escribe(lineas): # escribe las lineas que escribimos  al escojer "nuevo archivo"
+    archivo = open('archivo.txt', 'a', 1)
+    for i in range(len(lineas)): # recorre toda la lista
+        for elemento in lineas[i]: # recorre la posicion i de la lista
+            if elemento == ",":   # si encuentra una coma escribe
+                archivo.write(":"+'\n') # todo lo que ya ha leido y hace un salto de linea
             else:
-                archivo.write(elemento+" ")
-        archivo.write(" "+'\n')
+                archivo.write(elemento + " ") # escribe todo elemento
+        archivo.write(" " + '\n')  # espacio y un salto de linea
+    archivo.close()  # cierra el archivo
+
+
+def leer_txten_lista(newLine): # lee las lineas de el archivo
+    archivo=open('archivo.txt','r')  # abre el archivo y lo lee
+    linea=archivo.readlines() # me guarda lo que lee en el archivo
+    newLine.append(linea) # lo agrega a newlines
+    print (linea)
     archivo.close()
 
-
+#____________________________________________________________________________________
 
 def separa(lineas):  # separa las lineas
     lineas_aux = [] 
