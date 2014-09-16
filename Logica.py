@@ -4,7 +4,7 @@ __author__ = 'Dylana'
 # horas de trabajo:
 
 
-tipovariable = {"int": "num", "float": "deci", "str": "letter", "True": "V", "False": "F"}
+tipovariable = {"num":"int", "float": "deci", "str": "letter", "True": "V", "False": "F"}
 
 Condicionales = {'si': 'if', "sifi": "elif", "sino": "else"}
 Bucles = {"while": "mientras", "for": "hagase"}
@@ -28,6 +28,27 @@ def separa(lineas):  # separa las lineas
     lineas[:] = lineas_aux[:]
 
 def cambia(lineas):
+    lineas_aux = []
+    for i in range(len(lineas)):    #recorre las listas dentro de lineas
+        temp = []
+        for elemento in lineas[i]:  # agarra los elementos lista por lista
+            if elemento in Condicionales:
+                temp.append(Condicionales.get(elemento))
+            elif elemento in Bucles:
+                temp.append(Bucles.get(elemento))
+            elif elemento in Funciones:
+                temp.append(Funciones.get(elemento))
+            elif elemento in sintaxis:
+                temp.append(sintaxis.get(elemento))
+            elif elemento in tipovariable:
+                temp.append(tipovariable.get(elemento))
+            else:
+                temp.append(elemento)
+        lineas_aux.append(temp)
+
+    lineas[:] = lineas_aux[:]
+'''
+def cambia(lineas):
     listaAux = []
     for i in lineas:
         if i in Condicionales:
@@ -49,7 +70,17 @@ def escribe(lineas):
     archivo.close()
 
     #return lineas
-
+'''
+def escribe(lineas):
+    archivo = open('archivo.py', 'a', 1)
+    for i in range(len(lineas)):
+        for elemento in lineas[i]:
+            if elemento == ":":
+                archivo.write(":"+'\n')
+            else:
+                archivo.write(elemento+" ")
+        archivo.write(" "+'\n')
+    archivo.close()
 def crear_archivo():
     archivo = open('archivo.py', 'w')  # asi creamos un archivo .py
     archivo.close()
