@@ -17,10 +17,8 @@ def main():
             print("Nuevo archivo")
             writing(lineas)
             print(lineas)
-            separa(lineas)
-            cambia(lineas)
             crear_archivo()
-            escribe(lineas)
+            
         elif qs == 2:
             print("Compilar")
         else:
